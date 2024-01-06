@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { SharedLayot } from './components/SharedLayot/SharedLayot';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPages';
+import ShopingListPage from './pages/ShopingListPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { ThunkDispatch } from '@reduxjs/toolkit';
+import { featchCategories, featchTopBooks } from './redux/books/operations';
 
-function App() {
+export default function App() {
+  const dispath = useDispatch<ThunkDispatch<any, any, any>>();
+
+  useEffect(() => {
+    dispath(featchCategories());
+    dispath(featchTopBooks());
+  }, [dispath]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayot />}>
+          <Route index element={<HomePage />} />
+          <Route path="/shoping-list" element={<ShopingListPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
-
-export default App;
