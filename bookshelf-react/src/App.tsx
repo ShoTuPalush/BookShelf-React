@@ -7,15 +7,17 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { ThunkDispatch } from '@reduxjs/toolkit';
 import { featchCategories, featchTopBooks } from './redux/books/operations';
+import { refreshUser } from './redux/auth/operations';
+import { AppDispatch } from './redux/store';
 
 export default function App() {
-  const dispath = useDispatch<ThunkDispatch<any, any, any>>();
+  const dispath = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispath(featchCategories());
     dispath(featchTopBooks());
+    dispath(refreshUser());
   }, [dispath]);
 
   return (

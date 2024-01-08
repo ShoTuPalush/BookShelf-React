@@ -1,17 +1,15 @@
-import { ThunkDispatch } from '@reduxjs/toolkit';
-// import { FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { createUser } from '../redux/auth/operations';
+import { logOut, loginUser, refreshUser } from '../redux/auth/operations';
+import { AppDispatch } from '../redux/store';
 
 export default function LoginPage() {
-  const dispath = useDispatch<ThunkDispatch<any, any, any>>();
+  const dispath = useDispatch<AppDispatch>();
 
-  const handleRegister = (evt: any) => {
+  const handleLogin = (evt: any) => {
     evt.preventDefault();
     const form = evt.target;
     dispath(
-      createUser({
-        name: form.elements.name.value,
+      loginUser({
         email: form.elements.email.value,
         password: form.elements.password.value,
       }),
@@ -19,12 +17,7 @@ export default function LoginPage() {
   };
   return (
     <>
-      <form action="" onSubmit={(evt) => handleRegister(evt)}>
-        <label htmlFor="">
-          name
-          <input type="text" name="name" />
-        </label>
-
+      <form action="" onSubmit={(evt) => handleLogin(evt)}>
         <label htmlFor="">
           email
           <input type="email" name="email" />
@@ -33,8 +26,12 @@ export default function LoginPage() {
           password
           <input type="password" name="password" />
         </label>
-        <button type="submit">register</button>
+        <button type="submit">log in</button>
       </form>
+
+      <button onClick={() => dispath(refreshUser())}>check</button>
+
+      <button onClick={() => dispath(logOut())}>logOut</button>
     </>
   );
 }

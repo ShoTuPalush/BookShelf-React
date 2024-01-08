@@ -4,7 +4,6 @@ import { selectSortedTopBooks } from '../../redux/books/selector';
 
 export const TopBooks = () => {
   const topBooks = useSelector(selectSortedTopBooks);
-  console.log(topBooks);
 
   return (
     <>

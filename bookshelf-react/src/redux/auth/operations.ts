@@ -1,10 +1,11 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   signOut,
+  signInWithEmailAndPassword,
+  signOut,
   updateProfile,
   User,
+  browserLocalPersistence,
 } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 // import { getDatabase, set, ref, child, get } from 'firebase/database';
@@ -15,6 +16,8 @@ interface IUserData {
   password: string;
   name: string;
 }
+
+type IUSerDataLogin = Pick<IUserData, 'email' | 'password'>;
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDlCgJ9fZplPwmRqRoB7i6ufDSRrpDBmIQ',
@@ -31,14 +34,59 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // const database = getDatabase(app);
 
-export const createUser = createAsyncThunk('auth', async (dataUser: IUserData, thunApi) => {
+export const createUser = createAsyncThunk('auth/createUser', async (dataUser: IUserData, thunApi) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, dataUser.email, dataUser.password);
     await updateProfile(auth.currentUser as User, {
       displayName: dataUser.name,
     });
-    return res;
+    const data = {
+      name: res.user.displayName,
+      email: res.user.email,
+    };
+    return data;
   } catch (error: any) {
     return thunApi.rejectWithValue(error.message);
   }
 });
+
+export const loginUser = createAsyncThunk('auth/loginUser', async (dataUser: IUSerDataLogin, thunApi) => {
+  try {
+    const res = await signInWithEmailAndPassword(auth, dataUser.email, dataUser.password);
+    const data = {
+      name: res.user.displayName,
+      email: res.user.email,
+    };
+    return data;
+  } catch (error: any) {
+    return thunApi.rejectWithValue(error.message);
+  }
+});
+
+export const refreshUser = createAsyncThunk('auth/refreshUser', async (_, thunApi) => {
+  try {
+    await auth.setPersistence(browserLocalPersistence);
+    const user = auth.currentUser;
+    if (user === null) {
+      return;
+    }
+    const data = {
+      name: user.displayName,
+      email: user.email,
+    };
+    return data;
+  } catch (error: any) {
+    return thunApi.rejectWithValue(error.message);
+  }
+});
+
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunApi) => {
+  try {
+    await signOut(auth);
+    return;
+  } catch (error: any) {
+    return thunApi.rejectWithValue(error.message);
+  }
+});
+
+// sdfsdfsf@mail.com
