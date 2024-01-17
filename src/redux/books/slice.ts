@@ -27,7 +27,7 @@ const initialState: IBooksState = {
   category: [],
   error: null,
   isLoading: false,
-  selectCategory: 'all categories',
+  selectCategory: 'All categories',
 };
 
 const handlePending = (state: any) => {

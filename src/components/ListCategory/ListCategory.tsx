@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ThunkDispatch, nanoid } from '@reduxjs/toolkit';
+import { nanoid } from '@reduxjs/toolkit';
 import { featchBooks } from '../../redux/books/operations';
 import { clearBook, setSelect } from '../../redux/books/slice';
-import { selectCategory } from '../../redux/books/selector';
+import { selectCategory, selectChangeCategory } from '../../redux/books/selector';
+import { AppDispatch } from '../../redux/store';
 
 export const ListCategory = () => {
-  const dispath = useDispatch<ThunkDispatch<any, any, any>>();
+  const dispath = useDispatch<AppDispatch>();
   const categoryList = useSelector(selectCategory);
+  const changeCategory = useSelector(selectChangeCategory);
 
   const handleCatagory = (value: string) => {
     dispath(setSelect(value));
@@ -19,21 +21,34 @@ export const ListCategory = () => {
 
   return (
     <>
-      <p
-        className="text-2xl mx-5 uppercase text-blue-700 cursor-pointer inline-block"
-        onClick={() => handleCatagory('all categories')}
-      >
-        all categories
-      </p>
-      <ul>
-        {categoryList.map((category) => (
-          <li key={nanoid()}>
-            <p className="cursor-pointer inline-block" onClick={() => handleCatagory(category.list_name)}>
-              {category.list_name}
-            </p>
+      <div className="h-60 overflow-y-auto mx-5 md:mx-8 md:h-472 w-337 mb-10 md:mb-24  lg:mb-20 lg:mr-0">
+        <ul className="flex gap-5 flex-col md:gap-7 h-60 md:h-472">
+          <li
+            className={
+              changeCategory === 'All categories'
+                ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base'
+                : '  text-gray-400 cursor-pointer inline-block md:text-base'
+            }
+            onClick={() => handleCatagory('All categories')}
+          >
+            All categories
           </li>
-        ))}
-      </ul>
+          {categoryList.map((category) => (
+            <li key={nanoid()}>
+              <p
+                className={
+                  changeCategory === category.list_name
+                    ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base'
+                    : ' text-gray-400 cursor-pointer inline-block md:text-base'
+                }
+                onClick={() => handleCatagory(category.list_name)}
+              >
+                {category.list_name}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
