@@ -19,7 +19,7 @@ export const Books = () => {
           <span className="text-blue-600"> {lastWord}</span>
         </h2>
         <ul
-          className="mx-4 md:mx-8
+          className="mx-5 md:mx-8
                      md:flex md:gap-6 flex-wrap
                     "
         >

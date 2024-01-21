@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { featchBooks, featchCategories, featchSaveBook, featchTopBooks } from './operations';
+import { featchBook, featchBooks, featchCategories, featchTopBooks } from './operations';
 
 export interface IBook {
   [key: string]: any;
@@ -18,6 +18,7 @@ interface IBooksState {
   error: string | null;
   isLoading: boolean;
   selectCategory: string;
+  selectBook: IBook;
 }
 
 const initialState: IBooksState = {
@@ -25,6 +26,7 @@ const initialState: IBooksState = {
   topBooks: [],
   saveBooks: [],
   category: [],
+  selectBook: {},
   error: null,
   isLoading: false,
   selectCategory: 'All categories',
@@ -43,6 +45,15 @@ const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
+    addSaveBook(state, action) {
+      state.saveBooks.push(action.payload);
+    },
+    removeSaveBook(state, action) {
+      const index = state.saveBooks.findIndex((book) => book._id === action.payload._id);
+      if (index !== -1) {
+        state.saveBooks.splice(index, 1);
+      }
+    },
     clearBook(state) {
       state.books = [];
     },
@@ -63,11 +74,14 @@ const bookSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(featchCategories.rejected, handleReject)
-      .addCase(featchSaveBook.pending, handlePending)
-      .addCase(featchSaveBook.fulfilled, (state, action: PayloadAction<IBook>) => {
-        state.saveBooks.push(action.payload);
+      .addCase(featchBook.pending, (state) => {
+        state.isLoading = true;
+        state.selectBook = {};
       })
-      .addCase(featchSaveBook.rejected, handleReject)
+      .addCase(featchBook.fulfilled, (state, action: PayloadAction<IBook>) => {
+        state.selectBook = action.payload;
+      })
+      .addCase(featchBook.rejected, handleReject)
       .addCase(featchTopBooks.pending, handlePending)
       .addCase(featchTopBooks.fulfilled, (state, action: PayloadAction<ITopBooks[]>) => {
         state.topBooks = action.payload;
@@ -77,4 +91,4 @@ const bookSlice = createSlice({
 });
 
 export const bookReducer = bookSlice.reducer;
-export const { clearBook, setSelect } = bookSlice.actions;
+export const { clearBook, setSelect, addSaveBook, removeSaveBook } = bookSlice.actions;

@@ -26,7 +26,7 @@ export const featchCategories = createAsyncThunk('book/featchCategories', async 
   }
 });
 
-export const featchSaveBook = createAsyncThunk('book/featchSaveBook', async (id: string, thunkApi) => {
+export const featchBook = createAsyncThunk('book/featchBook', async (id: string, thunkApi) => {
   try {
     const res = await axios.get(`/books/${id}`);
     return res.data as IBook;

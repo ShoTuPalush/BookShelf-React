@@ -71,3 +71,13 @@ export const SvgIconAngleDown = () => {
     </>
   );
 };
+
+export const SvgIconCross = () => {
+  return (
+    <>
+      <svg viewBox="0 0 32 32" className="h-8 w-8 md:h-9 md:w-9 stroke-black">
+        <path d="M10 8.586l-7.071-7.071-1.414 1.414 7.071 7.071-7.071 7.071 1.414 1.414 7.071-7.071 7.071 7.071 1.414-1.414-7.071-7.071 7.071-7.071-1.414-1.414-7.071 7.071z"></path>
+      </svg>
+    </>
+  );
+};

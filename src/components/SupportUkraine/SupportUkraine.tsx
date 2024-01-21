@@ -49,7 +49,7 @@ export const SupportUkraine = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 mb-5 text-white h-8"
-                href="'https://www.msf.org/ukraine"
+                href="https://www.msf.org/ukraine"
               >
                 <span>03</span>
                 <img className=" brightness-0 invert h-8" src={madicans} alt="" />

@@ -29,7 +29,7 @@ export const TopBooks = () => {
           Best Sellers <span className="text-blue-600">Books</span>
         </h2>
         {topBooks[0] && (
-          <ul className="mx-4 md:mx-8">
+          <ul className="mx-5 md:mx-8">
             {topBooks.map((item) => (
               <li key={nanoid()}>
                 <p className="uppercase text-gray-400 text-sm mb-4">{item.list_name}</p>
