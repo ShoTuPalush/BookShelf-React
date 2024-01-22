@@ -13,7 +13,6 @@ export type ICategory = Pick<ITopBooks, 'list_name'>;
 interface IBooksState {
   books: IBook[];
   topBooks: ITopBooks[];
-  saveBooks: IBook[];
   category: ICategory[];
   error: string | null;
   isLoading: boolean;
@@ -24,7 +23,6 @@ interface IBooksState {
 const initialState: IBooksState = {
   books: [],
   topBooks: [],
-  saveBooks: [],
   category: [],
   selectBook: {},
   error: null,
@@ -45,15 +43,6 @@ const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
-    addSaveBook(state, action) {
-      state.saveBooks.push(action.payload);
-    },
-    removeSaveBook(state, action) {
-      const index = state.saveBooks.findIndex((book) => book._id === action.payload._id);
-      if (index !== -1) {
-        state.saveBooks.splice(index, 1);
-      }
-    },
     clearBook(state) {
       state.books = [];
     },
@@ -63,7 +52,10 @@ const bookSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(featchBooks.pending, handlePending)
+      .addCase(featchBooks.pending, (state: any) => {
+        state.books = [];
+        state.isLoading = true;
+      })
       .addCase(featchBooks.fulfilled, (state, action: PayloadAction<IBook[]>) => {
         state.books = action.payload;
       })
@@ -91,4 +83,4 @@ const bookSlice = createSlice({
 });
 
 export const bookReducer = bookSlice.reducer;
-export const { clearBook, setSelect, addSaveBook, removeSaveBook } = bookSlice.actions;
+export const { clearBook, setSelect } = bookSlice.actions;

@@ -81,3 +81,13 @@ export const SvgIconCross = () => {
     </>
   );
 };
+
+export const SvgIconTrash = () => {
+  return (
+    <>
+      <svg viewBox="0 0 20 20" className="h-4 w-4 md:h-4 md:w-4 stroke-white fill-white">
+        <path d="M6 2l2-2h4l2 2h4v2h-16v-2h4zM3 6h14l-1 14h-12l-1-14zM8 8v10h1v-10h-1zM11 8v10h1v-10h-1z"></path>
+      </svg>
+    </>
+  );
+};

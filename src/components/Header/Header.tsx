@@ -6,7 +6,7 @@ import { Navigation } from '../Navigation/Navigation';
 export const Header = () => {
   return (
     <>
-      <header className="mb-8 h-16 flex items-center justify-between px-6 border border-black rounded-b-lg">
+      <header className="px-6 mb-10 h-16 flex items-center justify-between border border-black rounded-b-lg">
         <Navigation />
         <div className="flex items-center gap-4 md:gap-6">
           <SwitchTheme />

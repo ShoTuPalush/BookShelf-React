@@ -3,16 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { useEffect } from 'react';
 import { featchBook } from '../../redux/books/operations';
-import { selectBook, selectSaveBooks } from '../../redux/books/selector';
+import { selectBook } from '../../redux/books/selector';
 import { SvgIconCross } from '../SvgIcon/SvgIcon';
 import amazon from './amazon-icon.png';
 import applebook from './applebook-icon.png';
-import { addSaveBook, removeSaveBook } from '../../redux/books/slice';
+import { addSaveBook, removeSaveBook } from '../../redux/pagination/slice';
+import { selectSaveBooks } from '../../redux/pagination/selector';
 
 const customStyles = {
-  overplay: {
-    position: 'fixed',
-  },
   content: {
     top: '50%',
     left: '50%',
@@ -60,7 +58,7 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
           contentLabel="Book Modal"
         >
           <div
-            className="py-10 px-6 w-335 
+            className="py-10 px-6 w-335 max-h-screen overflow-y-auto
           md:w-579 md:px-10"
           >
             <button
@@ -94,11 +92,11 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
                 )}
               </div>
             </div>
-            <div className="flex justify-center md:w-full">
+            <div className="w-full">
               {buttonSave === -1 ? (
                 <button
                   onClick={() => dispath(addSaveBook(res))}
-                  className="uppercase w-60 px-6 py-4 font-bold border-2 rounded-3xl border-blue-700 md:w-full "
+                  className="uppercase px-6 py-4 font-bold border-2 rounded-3xl border-blue-700 w-full "
                 >
                   add to shopping list
                 </button>
@@ -106,11 +104,11 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
                 <div>
                   <button
                     onClick={() => dispath(removeSaveBook(res))}
-                    className="uppercase  px-6 py-4 font-bold border-2 rounded-3xl mb-2 border-blue-700 md:w-full"
+                    className="uppercase px-6 py-4 font-bold border-2 rounded-3xl mb-2 border-blue-700 w-full"
                   >
                     remove to shopping list
                   </button>
-                  <p className="text-xs text-center ">
+                  <p className="text-xs text-center md:w-80 ml-auto mr-auto">
                     Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove
                     from the shopping list”.
                   </p>

@@ -6,8 +6,6 @@ export const selectBooks = (state: RootState) => state.books.books;
 
 export const selectCategory = (state: RootState) => state.books.category;
 
-export const selectSaveBooks = (state: RootState) => state.books.saveBooks;
-
 export const selectBook = (state: RootState) => state.books.selectBook;
 
 export const selectTopBooks = (state: RootState) => state.books.topBooks;
