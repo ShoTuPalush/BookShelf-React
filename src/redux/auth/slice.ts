@@ -38,13 +38,16 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.user = { name: payload?.name as string, email: payload?.email as string };
         state.isRefreshing = false;
-        state.isLoggenIn = true;
+        if (payload.email?.length) {
+          state.isLoggenIn = true;
+        } else state.isLoggenIn = false;
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
       })
       .addCase(logOut.fulfilled, (state) => {
         state.user = { name: '', email: '' };
+        state.isLoggenIn = false;
       });
   },
 });

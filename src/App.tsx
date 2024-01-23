@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { featchCategories, featchTopBooks } from './redux/books/operations';
 import { refreshUser } from './redux/auth/operations';
 import { AppDispatch } from './redux/store';
+import { RestrictedRoute } from './pages/RestrictedRoute';
 
 export default function App() {
   const dispath = useDispatch<AppDispatch>();
@@ -26,8 +27,8 @@ export default function App() {
         <Route path="/" element={<SharedLayot />}>
           <Route index element={<HomePage />} />
           <Route path="/shoping-list" element={<ShopingListPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />} />
+          <Route path="/register" element={<RestrictedRoute redirectTo="/" component={<RegisterPage />} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

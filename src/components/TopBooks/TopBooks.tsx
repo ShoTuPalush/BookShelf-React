@@ -41,6 +41,7 @@ export const TopBooks = () => {
                 >
                   {item.books.map((book) => (
                     <li
+                      key={nanoid()}
                       className="w-335 hidden
                                 md:w-218 
                                 lg:w-180 "

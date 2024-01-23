@@ -68,7 +68,7 @@ export const refreshUser = createAsyncThunk('auth/refreshUser', async (_, thunAp
     await auth.setPersistence(browserLocalPersistence);
     const user = auth.currentUser;
     if (user === null) {
-      return;
+      return { name: '', email: '' };
     }
     const data = {
       name: user.displayName,
