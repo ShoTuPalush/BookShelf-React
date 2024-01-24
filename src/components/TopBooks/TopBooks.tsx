@@ -24,15 +24,15 @@ export const TopBooks = () => {
       <div>
         <h2
           className="font-bold text-3xl mb-10 ml-5
-        md:text-5xl md:ml-8"
+        md:text-5xl md:ml-8 dark:text-white"
         >
-          Best Sellers <span className="text-blue-600">Books</span>
+          Best Sellers <span className="text-[#4F2EE8]">Books</span>
         </h2>
         {topBooks[0] && (
           <ul className="mx-5 md:mx-8">
             {topBooks.map((item) => (
               <li key={nanoid()}>
-                <p className="uppercase text-gray-400 text-sm mb-4">{item.list_name}</p>
+                <p className="uppercase text-[#B4AFAF] text-sm mb-4">{item.list_name}</p>
 
                 <ul
                   className="[&>*:nth-child(1)]:block 
@@ -53,7 +53,7 @@ export const TopBooks = () => {
                 <div className="flex flex-row-reverse">
                   <button
                     onClick={() => handleCatagory(item.list_name)}
-                    className="uppercase mb-10 py-3 px-4 border-2 rounded-3xl border-blue-700 w-32"
+                    className="uppercase mb-10 py-3 px-4 border-2 rounded-3xl border-[#4F2EE8] w-32 dark:text-white"
                   >
                     see more
                   </button>

@@ -13,10 +13,10 @@ export const Books = () => {
       <div>
         <h2
           className="font-bold text-3xl mb-10 ml-5
-          md:text-5xl md:ml-8"
+          md:text-5xl md:ml-8 dark:text-white"
         >
           {firstWord}
-          <span className="text-blue-600"> {lastWord}</span>
+          <span className="text-[#4F2EE8]"> {lastWord}</span>
         </h2>
         <ul
           className="mx-5 md:mx-8

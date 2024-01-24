@@ -12,7 +12,7 @@ export const ListCategory = () => {
 
   const handleCatagory = (value: string) => {
     dispath(setSelect(value));
-    if (value === 'all categories') {
+    if (value === 'All categories') {
       dispath(clearBook());
       return;
     }
@@ -26,8 +26,8 @@ export const ListCategory = () => {
           <li
             className={
               changeCategory === 'All categories'
-                ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base'
-                : '  text-gray-400 cursor-pointer inline-block md:text-base'
+                ? 'uppercase font-bold text-[#4F2EE8] cursor-pointer inline-block md:text-base dark:text-[#EAC645]'
+                : '  text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400'
             }
             onClick={() => handleCatagory('All categories')}
           >
@@ -39,7 +39,7 @@ export const ListCategory = () => {
                 className={
                   changeCategory === category.list_name
                     ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base'
-                    : ' text-gray-400 cursor-pointer inline-block md:text-base'
+                    : ' text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400'
                 }
                 onClick={() => handleCatagory(category.list_name)}
               >

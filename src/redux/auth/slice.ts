@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createUser, logOut, loginUser, refreshUser } from './operations';
 
 export interface IUser {
+  uid: string;
   name: string;
   email: string;
 }
@@ -13,7 +14,7 @@ interface IAuthState {
 }
 
 const initialState: IAuthState = {
-  user: { name: '', email: '' },
+  user: { uid: '', name: '', email: '' },
   isLoggenIn: false,
   isRefreshing: false,
 };
@@ -25,18 +26,18 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(createUser.fulfilled, (state, { payload }) => {
-        state.user = { name: payload.name as string, email: payload.email as string };
+        state.user = { uid: payload.uid, name: payload.name as string, email: payload.email as string };
         state.isLoggenIn = true;
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
-        state.user = { name: payload.name as string, email: payload.email as string };
+        state.user = { uid: payload.uid, name: payload.name as string, email: payload.email as string };
         state.isLoggenIn = true;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        state.user = { name: payload?.name as string, email: payload?.email as string };
+        state.user = { uid: payload?.uid, name: payload?.name as string, email: payload?.email as string };
         state.isRefreshing = false;
         if (payload.email?.length) {
           state.isLoggenIn = true;
@@ -46,7 +47,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(logOut.fulfilled, (state) => {
-        state.user = { name: '', email: '' };
+        state.user = { uid: '', name: '', email: '' };
         state.isLoggenIn = false;
       });
   },

@@ -16,13 +16,13 @@ export const Pagination = () => {
         <div className="flex justify-center">
           <button
             onClick={() => dispatch(firstPage())}
-            className="mr-1 text-xl text-center pb-1 rounded-full w-9 h-9 bg-blue-600 text-white md:h-11 md:w-11 md:mr-2"
+            className="mr-1 text-xl text-center pb-1 rounded-full w-9 h-9 bg-[#EAC645] border-black border text-black md:h-11 md:w-11 md:mr-2"
           >
             {'<<'}
           </button>
           <button
             onClick={() => dispatch(decrementPage())}
-            className="text-xl text-center pb-1 rounded-full w-9 h-9 bg-blue-600 text-white md:h-11 md:w-11"
+            className="text-xl text-center pb-1 pr-1 rounded-full w-9 h-9 bg-[#EAC645] border-black border text-black md:h-11 md:w-11"
           >
             {'<'}
           </button>
@@ -33,13 +33,13 @@ export const Pagination = () => {
           </div>
           <button
             onClick={() => dispatch(incrementPage())}
-            className="mr-1 text-xl text-center pb-1 rounded-full w-9 h-9 bg-blue-600 text-white md:h-11 md:w-11 md:mr-2"
+            className="mr-1 text-xl text-center pb-1 rounded-full w-9 h-9 bg-[#EAC645] border-black border text-black md:h-11 md:w-11 md:mr-2"
           >
             {'>'}
           </button>
           <button
             onClick={() => dispatch(lastPage())}
-            className="text-xl text-center pb-1 rounded-full w-9 h-9 bg-blue-600 text-white md:h-11 md:w-11"
+            className="text-xl text-center pb-1 rounded-full w-9 h-9 bg-[#EAC645] border-black border text-black md:h-11 md:w-11"
           >
             {'>>'}
           </button>

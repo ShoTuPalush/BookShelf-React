@@ -24,7 +24,7 @@ export default function RegisterPage() {
       <div className="h-lvh w-lvw bg-blue-600 bg-gradient-to-b from-indigo-600 to-indigo-300 absolute top-0 left-0 z-50 flex justify-center items-center">
         <div
           className="w-335 bg-white relative py-10 px-5 border-2 border-black rounded-2xl 
-        md:w-579 md:px-10 md:pt-20"
+        md:w-579 md:px-10 md:pt-20 dark:bg-[#202024] dark:border-[#F6F6F6]"
         >
           <Link
             className="absolute right-1.5 top-3 w-6 h-6 flex items-center justify-center
@@ -36,11 +36,11 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <label
               className="relative w-full h-50 mb-6 rounded-full border-2 border-black block 
-            md:h-16"
+            md:h-16 dark:border-[#F6F6F6] dark:text-[#F6F6F6]"
             >
               <input
                 className="peer w-full h-full rounded-full focus:outline-none pl-6 pr-12 font-bold
-                md:text-lg"
+                md:text-lg dark:bg-inherit"
                 type="text"
                 placeholder=" "
                 {...register('name', { required: true, maxLength: 20 })}
@@ -48,18 +48,18 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg"
+              md:top-4 md:text-lg dark:bg-[#202024]"
               >
                 name
               </span>
             </label>
             <label
               className=" relative w-full h-50 mb-6 rounded-full border-2 border-black block 
-            md:h-16"
+            md:h-16 dark:border-[#F6F6F6] dark:text-[#F6F6F6]"
             >
               <input
                 className="peer w-full h-full rounded-full focus:outline-none pl-6 pr-12 font-bold 
-                md:text-lg"
+                md:text-lg dark:bg-inherit"
                 type="email"
                 placeholder=" "
                 {...register('email', { required: true })}
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg"
+              md:top-4 md:text-lg dark:bg-[#202024]"
               >
                 email
               </span>
@@ -77,11 +77,11 @@ export default function RegisterPage() {
             </label>
             <label
               className="relative w-full h-50 mb-6 rounded-full border-2 border-black block 
-            md:h-16"
+            md:h-16 dark:border-[#F6F6F6] dark:text-[#F6F6F6]"
             >
               <input
                 className="peer w-full h-full rounded-full focus:outline-none pl-6 pr-12 font-bold 
-                md:text-lg"
+                md:text-lg dark:bg-inherit"
                 type="password"
                 placeholder=" "
                 {...register('password', { required: true, min: 8, max: 30 })}
@@ -89,7 +89,7 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg"
+              md:top-4 md:text-lg dark:bg-[#202024]"
               >
                 password
               </span>
@@ -99,7 +99,7 @@ export default function RegisterPage() {
             </label>
             <button
               className="w-full h-50 mb-4 rounded-full bg-black text-white uppercase font-bold text-base 
-              md:h-16 md:text-lg"
+              md:h-16 md:text-lg dark:bg-[#F6F6F6] dark:text-[#202024]"
               type="submit"
             >
               sign up
@@ -109,8 +109,8 @@ export default function RegisterPage() {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? 'mr-5 font-bold text-sm uppercase text-blue-600 underline md:text-lg '
-                  : 'mr-5 font-bold text-sm uppercase text-gray-400 md:text-lg'
+                  ? 'mr-5 font-bold text-sm uppercase text-[#4F2EE8] underline md:text-lg '
+                  : 'mr-5 font-bold text-sm uppercase text-gray-500 md:text-lg'
               }
               to={'/register'}
             >
@@ -119,8 +119,8 @@ export default function RegisterPage() {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? 'font-bold text-sm uppercase text-blue-600 underline md:text-lg '
-                  : 'font-bold text-sm uppercase text-gray-400 md:text-lg'
+                  ? 'font-bold text-sm uppercase text-[#4F2EE8] underline md:text-lg '
+                  : 'font-bold text-sm uppercase text-gray-500 md:text-lg'
               }
               to={'/login'}
             >

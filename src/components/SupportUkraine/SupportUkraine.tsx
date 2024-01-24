@@ -15,7 +15,7 @@ export const SupportUkraine = () => {
 
   return (
     <>
-      <div className=" mb-10 ml-auto mr-auto md:mx-0 lg:ml-5 bg-blue-600 bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-2xl py-6 px-10 h-472 w-337">
+      <div className=" mb-10 ml-auto mr-auto md:mx-0 lg:ml-5 bg-[#4F2EE8] bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-2xl py-6 px-10 h-472 w-337">
         <div className="flex items-center gap-3 mb-10">
           <h2 className=" text-white font-bold text-2xl ">Support Ukraine</h2>
           <SvgIconIconTrident />

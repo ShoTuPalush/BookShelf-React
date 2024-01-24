@@ -5,7 +5,7 @@ export const Navigation = () => {
   return (
     <>
       <div className="flex items-center">
-        <Link to={'/'} className="flex gap-2 font-medium mr-20">
+        <Link to={'/'} className="flex gap-2 font-medium mr-20 dark:text-[#F3F3F3]">
           <SvgIconLogo />
           Bookshelf
         </Link>
@@ -14,8 +14,8 @@ export const Navigation = () => {
             to={'/'}
             className={({ isActive }) =>
               isActive
-                ? 'bg-yellow-500 hidden md:block font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hidden md:block font-medium text-sm mr-6 py-2  uppercase'
+                ? 'bg-[#EAC645] hidden md:block font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
+                : 'hidden md:block font-medium text-sm mr-6 py-2  uppercase dark:text-white'
             }
           >
             home
@@ -24,8 +24,8 @@ export const Navigation = () => {
             to={'/shoping-list'}
             className={({ isActive }) =>
               isActive
-                ? 'bg-yellow-500 hidden md:flex font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hidden md:flex font-medium text-sm mr-6 py-2 uppercase'
+                ? 'bg-[#EAC645] hidden md:flex font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
+                : 'hidden md:flex font-medium text-sm mr-6 py-2 uppercase dark:text-white dark:fill-white'
             }
           >
             shoping list

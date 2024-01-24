@@ -18,7 +18,10 @@ const paginationSlice = createSlice({
   initialState,
   reducers: {
     addSaveBook(state, action) {
-      state.saveBooks.push(action.payload);
+      const index = state.saveBooks.findIndex((book) => book._id === action.payload._id);
+      if (index === -1) {
+        state.saveBooks.push(action.payload);
+      }
     },
     removeSaveBook(state, action) {
       const index = state.saveBooks.findIndex((book) => book._id === action.payload._id);
@@ -50,9 +53,20 @@ const paginationSlice = createSlice({
     lastPage(state) {
       state.page = Math.ceil(state.saveBooks.length / state.step);
     },
+    clearSaveBooks(state) {
+      state.saveBooks = [];
+    },
   },
 });
 
 export const paginationReducer = paginationSlice.reducer;
-export const { addSaveBook, removeSaveBook, choosePage, incrementPage, decrementPage, firstPage, lastPage } =
-  paginationSlice.actions;
+export const {
+  addSaveBook,
+  removeSaveBook,
+  choosePage,
+  incrementPage,
+  decrementPage,
+  firstPage,
+  lastPage,
+  clearSaveBooks,
+} = paginationSlice.actions;

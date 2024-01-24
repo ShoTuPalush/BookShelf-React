@@ -16,9 +16,9 @@ export default function ShopingListPage() {
         <div className="grow">
           <h2
             className="font-bold text-3xl mb-10 ml-5
-              md:text-5xl md:ml-8"
+              md:text-5xl md:ml-8 dark:text-white"
           >
-            Shoping <span className="text-blue-600">List</span>
+            Shoping <span className="text-[#4F2EE8]">List</span>
           </h2>
           {saveBooks.length === 0 ? <EmptyShopingList /> : <ShopingList />}
           <Pagination />

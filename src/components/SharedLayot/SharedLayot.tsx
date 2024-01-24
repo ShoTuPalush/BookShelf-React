@@ -4,7 +4,7 @@ import { Header } from '../Header/Header';
 export const SharedLayot = () => {
   return (
     <>
-      <div className="md:container">
+      <div className="md:container ">
         <Header />
       </div>
       <div className="container">

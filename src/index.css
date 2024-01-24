@@ -3,6 +3,42 @@
 @tailwind utilities;
 @tailwind variants;
 
+.dark body {
+  background-color: #202024;
+}
+
 .no-scroll {
   overflow: hidden;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b8b6b6;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aca9a9;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.6);
+  border-radius: 5px;
+}
+
+/* rgba(17, 17, 17, 0.60); */

@@ -4,17 +4,25 @@ import { authReducer } from './auth/slice';
 import { paginationReducer } from './pagination/slice';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { localsReducer } from './locals/slice';
 
-const persistConfig = {
+const persistBooksConfig = {
   key: 'books',
   storage,
   whitelist: ['saveBooks'],
 };
 
+const persistLocalsConfig = {
+  key: 'theme',
+  storage,
+  whitelist: ['theme'],
+};
+
 const rootReducer = combineReducers({
   auth: authReducer,
   books: bookReducer,
-  pagination: persistReducer(persistConfig, paginationReducer),
+  pagination: persistReducer(persistBooksConfig, paginationReducer),
+  locals: persistReducer(persistLocalsConfig, localsReducer),
 });
 
 export const store = configureStore({

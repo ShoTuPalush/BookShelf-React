@@ -11,6 +11,7 @@ import { featchCategories, featchTopBooks } from './redux/books/operations';
 import { refreshUser } from './redux/auth/operations';
 import { AppDispatch } from './redux/store';
 import { RestrictedRoute } from './pages/RestrictedRoute';
+import { initialTheme } from './redux/locals/slice';
 
 export default function App() {
   const dispath = useDispatch<AppDispatch>();
@@ -19,6 +20,7 @@ export default function App() {
     dispath(featchCategories());
     dispath(featchTopBooks());
     dispath(refreshUser());
+    dispath(initialTheme());
   }, [dispath]);
 
   return (
