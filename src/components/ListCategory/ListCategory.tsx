@@ -38,7 +38,7 @@ export const ListCategory = () => {
               <p
                 className={
                   changeCategory === category.list_name
-                    ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base'
+                    ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base dark:text-[#EAC645]'
                     : ' text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400'
                 }
                 onClick={() => handleCatagory(category.list_name)}

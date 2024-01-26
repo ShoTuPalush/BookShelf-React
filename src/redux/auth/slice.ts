@@ -25,13 +25,27 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(createUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
       .addCase(createUser.fulfilled, (state, { payload }) => {
         state.user = { uid: payload.uid, name: payload.name as string, email: payload.email as string };
         state.isLoggenIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(createUser.rejected, (state) => {
+        state.isRefreshing = false;
+      })
+      .addCase(loginUser.pending, (state) => {
+        state.isRefreshing = true;
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.user = { uid: payload.uid, name: payload.name as string, email: payload.email as string };
         state.isLoggenIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(loginUser.rejected, (state) => {
+        state.isRefreshing = false;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;

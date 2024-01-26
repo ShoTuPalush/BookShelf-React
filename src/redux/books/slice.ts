@@ -58,6 +58,7 @@ const bookSlice = createSlice({
       })
       .addCase(featchBooks.fulfilled, (state, action: PayloadAction<IBook[]>) => {
         state.books = action.payload;
+        state.isLoading = false;
       })
       .addCase(featchBooks.rejected, handleReject)
       .addCase(featchCategories.pending, handlePending)
@@ -72,6 +73,7 @@ const bookSlice = createSlice({
       })
       .addCase(featchBook.fulfilled, (state, action: PayloadAction<IBook>) => {
         state.selectBook = action.payload;
+        state.isLoading = false;
       })
       .addCase(featchBook.rejected, handleReject)
       .addCase(featchTopBooks.pending, handlePending)

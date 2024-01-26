@@ -49,8 +49,11 @@ const loadDb = async (user: any, thunkApi: any) => {
   const userId = user.uid;
 
   const res = await get(child(ref(database), `users/${userId}`));
-  const books = JSON.parse(res.val().books);
-  books.map((book: any) => thunkApi.dispatch(addSaveBook(book)));
+
+  if (res.val()?.books !== undefined) {
+    const books = JSON.parse(res.val()?.books);
+    books.map((book: any) => thunkApi.dispatch(addSaveBook(book)));
+  }
 };
 
 export const createUser = createAppAsyncThunk('auth/createUser', async (dataUser: IUserData, thunkApi) => {
