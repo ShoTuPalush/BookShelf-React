@@ -112,7 +112,7 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
               {buttonSave === -1 ? (
                 <button
                   onClick={() => savedBook()}
-                  className="uppercase px-6 py-4 font-bold border-2 rounded-full border-[#4F2EE8] w-full dark:text-white"
+                  className="uppercase transition-all hover:bg-[#4F2EE8] focus:bg-[#4F2EE8] px-6 py-4 font-bold border-2 rounded-full border-[#4F2EE8] w-full dark:text-white"
                 >
                   add to shopping list
                 </button>
@@ -120,11 +120,11 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
                 <div>
                   <button
                     onClick={() => savedBook2()}
-                    className="uppercase px-6 py-4 font-bold border-2 rounded-full mb-2 border-[#4F2EE8] w-full dark:text-white"
+                    className="uppercase transition-all hover:bg-[#4F2EE8] focus:bg-[#4F2EE8] px-6 py-4 font-bold border-2 rounded-full mb-2 border-[#4F2EE8] w-full dark:text-white"
                   >
                     remove to shopping list
                   </button>
-                  <p className="text-xs text-center text-gray-700 md:w-80 ml-auto mr-auto dark:text-gray-400">
+                  <p className="text-xs  text-center text-gray-700 md:w-80 ml-auto mr-auto dark:text-gray-400">
                     Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove
                     from the shopping list”.
                   </p>

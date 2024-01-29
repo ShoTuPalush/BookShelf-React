@@ -15,14 +15,14 @@ export const SupportUkraine = () => {
 
   return (
     <>
-      <div className=" mb-10 ml-auto mr-auto md:mx-0 lg:ml-5 bg-[#4F2EE8] bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-2xl py-6 px-10 h-472 w-337">
+      <div className="mb-10 ml-auto mr-auto md:mx-0 lg:ml-5 bg-[#4F2EE8] bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-2xl py-6 px-10 h-472 w-337">
         <div className="flex items-center gap-3 mb-10">
           <h2 className=" text-white font-bold text-2xl ">Support Ukraine</h2>
           <SvgIconIconTrident />
         </div>
-        <div>
-          <ul className="mb-6">
-            <li className={dropMenu ? 'hidden' : 'block'}>
+        <div className="mb-6 overflow-hidden h-[292px]">
+          <ul className={dropMenu ? 'transition-all duration-300 -translate-y-[156px]' : 'transition-all duration-300'}>
+            <li>
               <a
                 className="flex items-center gap-4 mb-5 text-white h-8"
                 target="_blank"
@@ -33,7 +33,7 @@ export const SupportUkraine = () => {
                 <img className=" brightness-0 invert h-8" src={save} alt="" />
               </a>
             </li>
-            <li className={dropMenu ? 'hidden' : 'block'}>
+            <li className={dropMenu ? '' : 'block'}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -44,7 +44,7 @@ export const SupportUkraine = () => {
                 <img className=" brightness-0 invert h-8" src={hope} alt="" />
               </a>
             </li>
-            <li className={dropMenu ? 'hidden' : 'block'}>
+            <li className={dropMenu ? '' : 'block'}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export const SupportUkraine = () => {
                 <img className=" brightness-0 invert h-8" src={sergey} alt="" />
               </a>
             </li>
-            <li className={dropMenu ? 'block' : 'hidden'}>
+            <li className={dropMenu ? '' : ''}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export const SupportUkraine = () => {
                 <img className=" brightness-0 invert h-8" src={international} alt="" />
               </a>
             </li>
-            <li className={dropMenu ? 'block' : 'hidden'}>
+            <li className={dropMenu ? '' : ''}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -110,7 +110,7 @@ export const SupportUkraine = () => {
                 <img className=" brightness-0 invert h-8" src={world} alt="" />
               </a>
             </li>
-            <li className={dropMenu ? 'block' : 'hidden'}>
+            <li className={dropMenu ? '' : ''}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"

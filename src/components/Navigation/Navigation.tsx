@@ -15,7 +15,7 @@ export const Navigation = () => {
             className={({ isActive }) =>
               isActive
                 ? 'bg-[#EAC645] hidden md:block font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hidden md:block font-medium text-sm mr-6 py-2  uppercase dark:text-white'
+                : 'hover:bg-[#EAC645]  hover:px-4 rounded-3xl  transition-all hidden md:block font-medium text-sm mr-6 py-2  uppercase dark:text-white'
             }
           >
             home
@@ -25,7 +25,7 @@ export const Navigation = () => {
             className={({ isActive }) =>
               isActive
                 ? 'bg-[#EAC645] hidden md:flex font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hidden md:flex font-medium text-sm mr-6 py-2 uppercase dark:text-white dark:fill-white'
+                : 'hover:bg-[#EAC645] hover:px-4 rounded-3xl transition hidden md:flex font-medium text-sm mr-6 py-2 uppercase dark:text-white dark:fill-white'
             }
           >
             shoping list

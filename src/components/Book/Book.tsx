@@ -26,7 +26,7 @@ export const Book = ({ _id, book_image, title, author }: IPropsBook) => {
         "
         onClick={() => modalOpen()}
       >
-        <div className="mb-3 rounded-lg relative after:rounded-b-lg after:w-335 md:after:w-218 lg:after:w-180 hover:after:content-['quick_view'] hover:after:bg-yellow-500 after:h-16 after:absolute after:uppercase after:text-center after:pt-5 after:bottom-0">
+        <div className=" overflow-hidden after:transition-all after:duration-500 mb-3 rounded-lg relative after:rounded-b-lg after:w-335 md:after:w-218 lg:after:w-180 hover:after:content-['quick_view'] hover:after:bg-yellow-500 after:h-16 after:absolute after:uppercase after:text-center after:pt-5 after:-bottom-16 hover:after:-translate-y-16">
           <img
             className="w-335 h-485 rounded-lg
             md:w-218 md:h-316

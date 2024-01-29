@@ -5,18 +5,21 @@ import { Book } from '../Book/Book';
 import { AppDispatch } from '../../redux/store';
 import { clearBook, setSelect } from '../../redux/books/slice';
 import { featchBooks } from '../../redux/books/operations';
+import { useRef } from 'react';
 
 export const TopBooks = () => {
   const dispath = useDispatch<AppDispatch>();
   const topBooks = useSelector(selectSortedTopBooks);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   const handleCatagory = (value: string) => {
     dispath(setSelect(value));
-    if (value === 'all categories') {
+    if (value === 'All categories') {
       dispath(clearBook());
       return;
     }
     dispath(featchBooks(value));
+    window.scrollTo({ top: titleRef.current?.offsetTop, behavior: 'smooth' });
   };
 
   return (
@@ -25,6 +28,7 @@ export const TopBooks = () => {
         <h2
           className="font-bold text-3xl mb-10 ml-5
         md:text-5xl md:ml-8 dark:text-white"
+          ref={titleRef}
         >
           Best Sellers <span className="text-[#4F2EE8]">Books</span>
         </h2>
@@ -53,7 +57,7 @@ export const TopBooks = () => {
                 <div className="flex flex-row-reverse">
                   <button
                     onClick={() => handleCatagory(item.list_name)}
-                    className="uppercase mb-10 py-3 px-4 border-2 rounded-3xl border-[#4F2EE8] w-32 dark:text-white"
+                    className="uppercase hover:bg-[#4F2EE8] transition-all mb-10 py-3 px-4 border-2 rounded-3xl border-[#4F2EE8] w-32 dark:text-white"
                   >
                     see more
                   </button>

@@ -27,7 +27,7 @@ export const ListCategory = () => {
             className={
               changeCategory === 'All categories'
                 ? 'uppercase font-bold text-[#4F2EE8] cursor-pointer inline-block md:text-base dark:text-[#EAC645]'
-                : '  text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400'
+                : ' transition-all text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400 hover:uppercase hover:font-bold hover:text-[#4F2EE8] dark:hover:text-[#EAC645]'
             }
             onClick={() => handleCatagory('All categories')}
           >
@@ -39,7 +39,7 @@ export const ListCategory = () => {
                 className={
                   changeCategory === category.list_name
                     ? 'uppercase font-bold text-blue-700 cursor-pointer inline-block md:text-base dark:text-[#EAC645]'
-                    : ' text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400'
+                    : 'transition-all text-gray-500 cursor-pointer inline-block md:text-base dark:text-gray-400 hover:uppercase hover:font-bold hover:text-[#4F2EE8] dark:hover:text-[#EAC645]'
                 }
                 onClick={() => handleCatagory(category.list_name)}
               >

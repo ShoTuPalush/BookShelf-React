@@ -124,8 +124,6 @@ export const saveDBList = createAppAsyncThunk('auth/saveDBList', async (book, th
     const isLoggenIn = auth.isLoggenIn;
     const userId = auth.user.uid;
     const book = pagination.saveBooks;
-    console.log(book);
-
     if (isLoggenIn) {
       const res = await set(ref(database, 'users/' + userId), {
         books: JSON.stringify(book),
