@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.2b9631b7.css",
-    "main.js": "/static/js/main.7429c121.js",
-    "static/js/787.06e46429.chunk.js": "/static/js/787.06e46429.chunk.js",
-    "static/media/menu.png": "/static/media/menu.379eeaa9991d16cdcb4d.png",
-    "static/media/empty.png": "/static/media/empty.ebfac7a5700d0e3c8d60.png",
-    "index.html": "/index.html",
-    "main.2b9631b7.css.map": "/static/css/main.2b9631b7.css.map",
-    "main.7429c121.js.map": "/static/js/main.7429c121.js.map",
-    "787.06e46429.chunk.js.map": "/static/js/787.06e46429.chunk.js.map"
+    "main.css": "/BookShelf-React/static/css/main.2b9631b7.css",
+    "main.js": "/BookShelf-React/static/js/main.808d58f4.js",
+    "static/js/787.06e46429.chunk.js": "/BookShelf-React/static/js/787.06e46429.chunk.js",
+    "static/media/menu.png": "/BookShelf-React/static/media/menu.379eeaa9991d16cdcb4d.png",
+    "static/media/empty.png": "/BookShelf-React/static/media/empty.ebfac7a5700d0e3c8d60.png",
+    "index.html": "/BookShelf-React/index.html",
+    "main.2b9631b7.css.map": "/BookShelf-React/static/css/main.2b9631b7.css.map",
+    "main.808d58f4.js.map": "/BookShelf-React/static/js/main.808d58f4.js.map",
+    "787.06e46429.chunk.js.map": "/BookShelf-React/static/js/787.06e46429.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2b9631b7.css",
-    "static/js/main.7429c121.js"
+    "static/js/main.808d58f4.js"
   ]
 }
