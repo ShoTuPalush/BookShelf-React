@@ -17,7 +17,7 @@ export const selectPaginBooks = createSelector([selectSaveBooks, selectPage, sel
 });
 
 export const selectMaxPage = createSelector([selectSaveBooks, selectPage, selectStep], (saveBooks, page, step) => {
-  let arrPage: number[] = [];
+  let arrPage: (number | string)[] = ['<<', '<'];
   const maxPage = Math.ceil(saveBooks.length / step);
   if (maxPage !== 0) {
     if (page === 1) {
@@ -40,5 +40,6 @@ export const selectMaxPage = createSelector([selectSaveBooks, selectPage, select
       arrPage.push(page + 1);
     }
   }
+  arrPage.push('>', '>>');
   return arrPage;
 });

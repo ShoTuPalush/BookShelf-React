@@ -48,7 +48,7 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg dark:bg-[#202024]"
+              md:top-4 md:text-lg dark:bg-[#202024] transition-all"
               >
                 name
               </span>
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg dark:bg-[#202024]"
+              md:top-4 md:text-lg dark:bg-[#202024]  transition-all"
               >
                 email
               </span>
@@ -81,7 +81,8 @@ export default function RegisterPage() {
             >
               <input
                 className="peer w-full h-full rounded-full focus:outline-none pl-6 pr-12 font-bold 
-                md:text-lg dark:bg-inherit"
+                md:text-lg dark:bg-inherit
+                "
                 type="password"
                 placeholder=" "
                 {...register('password', { required: true, min: 8, max: 30 })}
@@ -89,7 +90,7 @@ export default function RegisterPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg dark:bg-[#202024]"
+              md:top-4 md:text-lg dark:bg-[#202024] transition-all"
               >
                 password
               </span>

@@ -47,6 +47,9 @@ const bookSlice = createSlice({
       state.books = [];
     },
     setSelect(state, action: PayloadAction<string>) {
+      if (action.payload === 'All categories') {
+        state.books = [];
+      }
       state.selectCategory = action.payload;
     },
   },

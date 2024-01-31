@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/locals/selector';
 import { AppDispatch } from '../../redux/store';
 import { toogleTheme } from '../../redux/locals/slice';
+import clsx from 'clsx';
 
 export const SwitchTheme = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,11 +16,10 @@ export const SwitchTheme = () => {
             <input className="opacity-0" id="them-switch" type="checkbox" onClick={() => dispatch(toogleTheme())} />
             <span className="absolute inset-x-0 inset-y-0 bg-gradient-to-b from-indigo-800 to-blue-500 rounded-3xl cursor-pointer">
               <span
-                className={
-                  theme === 'dark'
-                    ? 'transition-all absolute h-5 w-5 translate-x-5 bottom-0.5 bg-white rounded-3xl'
-                    : 'transition-all absolute h-5 w-5 left-1 bottom-0.5 bg-white rounded-3xl'
-                }
+                className={clsx(
+                  'transition-all absolute h-5 w-5 left-0.5 bottom-0.5 bg-white rounded-3xl',
+                  theme === 'dark' && 'translate-x-5',
+                )}
               ></span>
             </span>
           </label>

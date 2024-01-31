@@ -47,7 +47,7 @@ export default function LoginPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg dark:bg-[#202024]"
+              md:top-4 md:text-lg dark:bg-[#202024] transition-all"
               >
                 email
               </span>
@@ -69,7 +69,7 @@ export default function LoginPage() {
               <span
                 className="w-18 px-2 absolute font-bold uppercase left-6 top-2.5 bg-white 
                 peer-focus:-top-3.5 peer-hover:-top-3.5 peer-[:not(:placeholder-shown)]:-top-3.5
-              md:top-4 md:text-lg dark:bg-[#202024]"
+              md:top-4 md:text-lg dark:bg-[#202024] transition-all"
               >
                 password
               </span>

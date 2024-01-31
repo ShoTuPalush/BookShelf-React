@@ -35,23 +35,27 @@ const paginationSlice = createSlice({
       }
     },
     choosePage(state, action) {
-      state.page = action.payload;
-    },
-    incrementPage(state) {
-      if (state.page < Math.ceil(state.saveBooks.length / state.step)) {
-        state.page = state.page + 1;
+      switch (action.payload) {
+        case '<<':
+          state.page = 1;
+          break;
+        case '<':
+          if (state.page > 1) {
+            state.page = state.page - 1;
+          }
+          break;
+        case '>':
+          if (state.page < Math.ceil(state.saveBooks.length / state.step)) {
+            state.page = state.page + 1;
+          }
+          break;
+        case '>>':
+          state.page = Math.ceil(state.saveBooks.length / state.step);
+          break;
+        default:
+          state.page = action.payload;
+          break;
       }
-    },
-    decrementPage(state) {
-      if (state.page > 1) {
-        state.page = state.page - 1;
-      }
-    },
-    firstPage(state) {
-      state.page = 1;
-    },
-    lastPage(state) {
-      state.page = Math.ceil(state.saveBooks.length / state.step);
     },
     clearSaveBooks(state) {
       state.saveBooks = [];
@@ -60,13 +64,4 @@ const paginationSlice = createSlice({
 });
 
 export const paginationReducer = paginationSlice.reducer;
-export const {
-  addSaveBook,
-  removeSaveBook,
-  choosePage,
-  incrementPage,
-  decrementPage,
-  firstPage,
-  lastPage,
-  clearSaveBooks,
-} = paginationSlice.actions;
+export const { addSaveBook, removeSaveBook, choosePage, clearSaveBooks } = paginationSlice.actions;

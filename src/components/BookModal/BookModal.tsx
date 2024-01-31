@@ -39,27 +39,25 @@ interface IPropsBookModal {
 }
 
 export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => {
-  const dispath = useDispatch<AppDispatch>();
-  const theme = useSelector(selectTheme);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (isModalOpen) {
-      dispath(featchBook(_id));
+      dispatch(featchBook(_id));
     }
-  }, [dispath, _id, isModalOpen]);
+  }, [dispatch, _id, isModalOpen]);
 
+  const theme = useSelector(selectTheme);
   const res = useSelector(selectBook);
   const saveBooks = useSelector(selectSaveBooks);
   const buttonSave = saveBooks.findIndex((book) => book._id === _id);
 
   const savedBook = () => {
-    dispath(addSaveBook(res));
-    dispath(saveDBList());
-  };
-
-  const savedBook2 = () => {
-    dispath(removeSaveBook(res));
-    dispath(saveDBList());
+    dispatch(saveDBList());
+    if (buttonSave === -1) {
+      return dispatch(addSaveBook(res));
+    }
+    dispatch(removeSaveBook(res));
   };
 
   return (
@@ -75,7 +73,7 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
         >
           <div
             className="py-10 px-6 w-335 max-h-screen overflow-y-auto border-2 border-black bg-white rounded-[18px]
-          md:w-579 md:px-10 dark:bg-[#202024] dark:border-white"
+                      md:w-579 md:px-10 dark:bg-[#202024] dark:border-white"
           >
             <button
               className="absolute right-0 top-3 flex items-center justify-center
@@ -109,26 +107,18 @@ export const BookModal = ({ isModalOpen, modalClose, _id }: IPropsBookModal) => 
               </div>
             </div>
             <div className="w-full">
-              {buttonSave === -1 ? (
-                <button
-                  onClick={() => savedBook()}
-                  className="uppercase transition-all hover:bg-[#4F2EE8] focus:bg-[#4F2EE8] px-6 py-4 font-bold border-2 rounded-full border-[#4F2EE8] w-full dark:text-white"
-                >
-                  add to shopping list
-                </button>
-              ) : (
-                <div>
-                  <button
-                    onClick={() => savedBook2()}
-                    className="uppercase transition-all hover:bg-[#4F2EE8] focus:bg-[#4F2EE8] px-6 py-4 font-bold border-2 rounded-full mb-2 border-[#4F2EE8] w-full dark:text-white"
-                  >
-                    remove to shopping list
-                  </button>
-                  <p className="text-xs  text-center text-gray-700 md:w-80 ml-auto mr-auto dark:text-gray-400">
-                    Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove
-                    from the shopping list”.
-                  </p>
-                </div>
+              <button
+                onClick={() => savedBook()}
+                className="uppercase transition-all px-6 py-4 font-bold border-2 rounded-full border-[#4F2EE8] w-full 
+                hover:bg-[#4F2EE8] focus:bg-[#4F2EE8] dark:text-white"
+              >
+                {buttonSave === -1 ? 'add to shopping list' : 'remove to shopping list'}
+              </button>
+              {buttonSave !== -1 && (
+                <p className="mt-2 text-xs  text-center text-gray-700 md:w-80 ml-auto mr-auto dark:text-gray-400">
+                  Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove
+                  from the shopping list”.
+                </p>
               )}
             </div>
           </div>

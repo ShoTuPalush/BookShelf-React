@@ -12,7 +12,6 @@ import { useState } from 'react';
 
 export const SupportUkraine = () => {
   const [dropMenu, setDropMenu] = useState(false);
-
   return (
     <>
       <div className="mb-10 ml-auto mr-auto md:mx-0 lg:ml-5 bg-[#4F2EE8] bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-2xl py-6 px-10 h-472 w-337">
@@ -21,7 +20,7 @@ export const SupportUkraine = () => {
           <SvgIconIconTrident />
         </div>
         <div className="mb-6 overflow-hidden h-[292px]">
-          <ul className={dropMenu ? 'transition-all duration-300 -translate-y-[156px]' : 'transition-all duration-300'}>
+          <ul className={dropMenu ? 'transition-all duration-700 -translate-y-[156px]' : 'transition-all duration-700'}>
             <li>
               <a
                 className="flex items-center gap-4 mb-5 text-white h-8"

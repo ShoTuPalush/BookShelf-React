@@ -21,7 +21,8 @@ export const ScrollToTop = () => {
     <>
       {first && (
         <button
-          className="flex items-center justify-center w-14 h-14 bg-blue-600 rounded-full fixed bottom-10 right-10 fill-white animate-bounce"
+          className="flex items-center justify-center w-14 h-14 bg-blue-600 
+          rounded-full fixed bottom-10 right-10 fill-white animate-bounce"
           onClick={() =>
             window.scrollTo({
               top: 0,

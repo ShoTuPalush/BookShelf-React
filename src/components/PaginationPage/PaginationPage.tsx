@@ -1,31 +1,30 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { choosePage } from '../../redux/pagination/slice';
+import clsx from 'clsx';
+import { selectPage } from '../../redux/pagination/selector';
 
-interface IPage {
-  page: number;
-  activePage: number;
+interface IPropPage {
+  page: number | string;
 }
 
-export const PaginationPage = ({ page, activePage }: IPage) => {
+export const PaginationPage = ({ page }: IPropPage) => {
   const dispatch = useDispatch<AppDispatch>();
+  const activePage = useSelector(selectPage);
   return (
     <>
-      {activePage === page ? (
-        <button
-          onClick={() => dispatch(choosePage(page))}
-          className="text-xl text-center pb-1 rounded-full w-9 h-9 border border-black text-white bg-black md:h-11 md:w-11 dark:border-white dark:bg-white dark:text-black"
-        >
-          {page}
-        </button>
-      ) : (
-        <button
-          onClick={() => dispatch(choosePage(page))}
-          className="text-xl text-center pb-1 rounded-full w-9 h-9 border border-black text-black md:h-11 md:w-11 dark:border-white dark:text-white"
-        >
-          {page}
-        </button>
-      )}
+      <button
+        onClick={() => dispatch(choosePage(page))}
+        className={clsx(
+          'transition-all text-xl text-center pb-1 rounded-full w-9 h-9 border border-black md:h-11 md:w-11 dark:border-white',
+          activePage === page
+            ? 'text-white bg-black  dark:bg-white dark:text-black'
+            : ' text-black  dark:text-white hover:text-white hover:bg-blue-700',
+          typeof page !== 'number' && 'bg-[#EAC645]',
+        )}
+      >
+        {page}
+      </button>
     </>
   );
 };
