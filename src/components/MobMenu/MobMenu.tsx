@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SvgIconArrowRight, SvgIconUser } from '../SvgIcon/SvgIcon';
-import mobMenu from './menu.png';
+import mobMenu from '../../images/menu.png';
 import { useSelector } from 'react-redux';
 import { selectIsLeggenIn, selectUser } from '../../redux/auth/selector';
 import { Navigation } from '../Navigation/Navigation';

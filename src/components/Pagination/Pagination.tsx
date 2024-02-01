@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectMaxPage, selectSaveBooks } from '../../redux/pagination/selector';
 import { PaginationPage } from '../PaginationPage/PaginationPage';
+import { nanoid } from '@reduxjs/toolkit';
 
 export const Pagination = () => {
   const saveBook = useSelector(selectSaveBooks);
@@ -14,7 +15,7 @@ export const Pagination = () => {
         [&>*:nth-child(2)]:mr-3 [&>*:nth-last-child(2)]:ml-3"
         >
           {maxPage.map((page) => (
-            <PaginationPage page={page} />
+            <PaginationPage page={page} key={nanoid()} />
           ))}
         </div>
       )}

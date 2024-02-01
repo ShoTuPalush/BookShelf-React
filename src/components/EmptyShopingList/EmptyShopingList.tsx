@@ -1,4 +1,4 @@
-import empty from './empty.png';
+import empty from '../../images/empty.png';
 
 export const EmptyShopingList = () => {
   return (
