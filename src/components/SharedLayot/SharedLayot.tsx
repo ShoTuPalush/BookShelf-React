@@ -14,9 +14,9 @@ export const SharedLayot = () => {
       <div className="md:container ">
         <Header />
       </div>
-      <div className="container">
+      <main className="container">
         <Outlet />
-      </div>
+      </main>
       <ScrollToTop />
       {isRefreshing && <Loader />}
       {isLoading && <Loader />}

@@ -1,37 +1,41 @@
-import { Link, NavLink } from 'react-router-dom';
-import { SvgIconLogo, SvgIconShopingList } from '../SvgIcon/SvgIcon';
+import { NavLink } from 'react-router-dom';
+import { SvgIconShopingList } from '../SvgIcon/SvgIcon';
+import clsx from 'clsx';
 
-export const Navigation = () => {
+interface IPropsNavigation {
+  display: string;
+  color: string;
+}
+
+export const Navigation = ({ display, color }: IPropsNavigation) => {
   return (
     <>
-      <div className="flex items-center">
-        <Link to={'/'} className="flex gap-2 font-medium mr-20 dark:text-[#F3F3F3]">
-          <SvgIconLogo />
-          Bookshelf
-        </Link>
-        <div className="flex">
-          <NavLink
-            to={'/'}
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#EAC645] hidden md:block font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hover:bg-[#EAC645]  hover:px-4 rounded-3xl  transition-all hidden md:block font-medium text-sm mr-6 py-2  uppercase dark:text-white'
-            }
-          >
-            home
-          </NavLink>
-          <NavLink
-            to={'/shoping-list'}
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#EAC645] hidden md:flex font-bold text-sm mr-6 px-4 py-2 rounded-3xl uppercase'
-                : 'hover:bg-[#EAC645] hover:px-4 rounded-3xl transition hidden md:flex font-medium text-sm mr-6 py-2 uppercase dark:text-white dark:fill-white'
-            }
-          >
-            shoping list
-            <SvgIconShopingList />
-          </NavLink>
-        </div>
+      <div className={display}>
+        <NavLink
+          to={'/'}
+          className={({ isActive }) =>
+            clsx(
+              'transition-all text-sm mr-6 py-2 rounded-3xl uppercase ',
+              'dark:text-white hover:bg-[#EAC645] hover:px-4 ',
+              isActive ? 'bg-[#EAC645] font-bold px-4 ' : 'font-medium ' + color,
+            )
+          }
+        >
+          home
+        </NavLink>
+        <NavLink
+          to={'/shoping-list'}
+          className={({ isActive }) =>
+            clsx(
+              'flex transition-all text-sm mr-6 py-2 rounded-3xl uppercase ',
+              'dark:text-white dark:fill-white hover:bg-[#EAC645] hover:px-4 ',
+              isActive ? 'bg-[#EAC645] font-bold px-4 ' : 'font-medium ' + color,
+            )
+          }
+        >
+          shoping list
+          <SvgIconShopingList />
+        </NavLink>
       </div>
     </>
   );
